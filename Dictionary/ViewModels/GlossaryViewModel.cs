@@ -108,6 +108,12 @@ namespace Dictionary.ViewModels
 
         #endregion Properties
 
+
+        public ICommand DeleteCommand { get; set; }
+        public ICommand EditCommand { get; set; }
+        public ICommand AddCommand { get; set; }
+        public ICommand NewCommand { get; set; }
+
         public void GenerateCommands()
         {
             DeleteCommand = new RouteCommand(o => Delete());
@@ -121,7 +127,7 @@ namespace Dictionary.ViewModels
             Items = GlossaryRepository.SortList();
         }
 
-        private bool NotEmpty(string term, string definition)
+        private bool FieldNotEmpty(string term, string definition)
         {
             return term != null && definition != null;
         }
@@ -134,7 +140,7 @@ namespace Dictionary.ViewModels
 
         public void Add()
         {
-            if (NotEmpty(_selectedItem.Term, _selectedItem.Definition))
+            if (FieldNotEmpty(_selectedItem.Term, _selectedItem.Definition))
             {
                 if (_listIndex == null)
                 {
@@ -147,12 +153,12 @@ namespace Dictionary.ViewModels
                 }
                 Items = GlossaryRepository.Items;
                 Editing = false;
+                Sort();
             }
             else
             {
                 MessageBox.Show("Field is empty", "Notice");
             }
-            Sort();
         }
 
         public void Edit()
@@ -180,10 +186,5 @@ namespace Dictionary.ViewModels
                 MessageBox.Show("No item selected", "Notice");
             }
         }
-
-        public ICommand DeleteCommand { get; set; }
-        public ICommand EditCommand { get; set; }
-        public ICommand AddCommand { get; set; }
-        public ICommand NewCommand { get; set; }
     }
 }

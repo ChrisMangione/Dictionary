@@ -18,4 +18,8 @@ c:\users\mangione\documents\visual studio 2015\Projects\Dictionary\Dictionary\ob
 c:\users\mangione\documents\visual studio 2015\Projects\Dictionary\Dictionary\obj\Debug\Dictionary.csproj.GenerateResource.Cache
 c:\users\mangione\documents\visual studio 2015\Projects\Dictionary\Dictionary\obj\Debug\Dictionary.exe
 c:\users\mangione\documents\visual studio 2015\Projects\Dictionary\Dictionary\obj\Debug\Dictionary.pdb
+c:\users\mangione\documents\visual studio 2015\Projects\Dictionary\Dictionary\bin\Debug\Dictionary.exe.manifest
+c:\users\mangione\documents\visual studio 2015\Projects\Dictionary\Dictionary\bin\Debug\Dictionary.application
+c:\users\mangione\documents\visual studio 2015\Projects\Dictionary\Dictionary\obj\Debug\Dictionary.exe.manifest
+c:\users\mangione\documents\visual studio 2015\Projects\Dictionary\Dictionary\obj\Debug\Dictionary.application
 c:\users\mangione\documents\visual studio 2015\Projects\Dictionary\Dictionary\obj\Debug\Dictionary.csprojResolveAssemblyReference.cache
