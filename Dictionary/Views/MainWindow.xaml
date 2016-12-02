@@ -1,0 +1,32 @@
+﻿<Window x:Class="Dictionary.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:viewModel="clr-namespace:Dictionary.ViewModels"
+        xmlns:views="clr-namespace:Dictionary.Views"
+        mc:Ignorable="d" 
+        Title="Glossary" MaxHeight="440" MaxWidth="610"
+        d:DataContext="{d:DesignInstance viewModel:GlossaryViewModel}">
+    <Window.Resources>
+        <views:InvertBoolConverter x:Key="BoolConverter"/>
+    </Window.Resources>
+    <Grid>
+        <ListView Name="ListView" HorizontalAlignment="Left" Height="293" VerticalAlignment="Top" Width="570" Margin="10,10,0,0" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" IsEnabled="{Binding Editing, Converter={StaticResource BoolConverter}}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Term" Width="120" DisplayMemberBinding="{Binding Term}"/>
+                    <GridViewColumn Header="Definition" Width="440"  DisplayMemberBinding="{Binding Definition}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Edit" HorizontalAlignment="Left" Height="24" Margin="10,308,0,0" VerticalAlignment="Top" Width="73" Command="{Binding EditCommand}" IsEnabled="{Binding Editing, Converter={StaticResource BoolConverter}}"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Height="24" Margin="88,308,0,0" VerticalAlignment="Top" Width="73" Command="{Binding DeleteCommand}" IsEnabled="{Binding Editing, Converter={StaticResource BoolConverter}}"/>
+        <Button Content="New" HorizontalAlignment="Left" Height="24" Margin="166,308,0,0" VerticalAlignment="Top" Width="73" Command="{Binding NewCommand}" IsEnabled="{Binding Editing, Converter={StaticResource BoolConverter}}"/>
+        <Button Content="Add" HorizontalAlignment="Left" Height="24" Margin="509,361,0,0" VerticalAlignment="Top" Width="73" Command="{Binding AddCommand}" IsEnabled="{Binding Editing}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Term, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="121" Margin="10,362,0,0" IsEnabled="{Binding Editing}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Definition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="368" Margin="136,362,0,0" IsEnabled="{Binding Editing}"/>
+        <Label x:Name="TermLabel" Content="Term" HorizontalAlignment="Left" Height="25" Margin="10,337,0,0" VerticalAlignment="Top" Width="121"/>
+        <Label x:Name="DefinitionLabel" Content="Definition" HorizontalAlignment="Left" Height="25" Margin="136,337,0,0" VerticalAlignment="Top" Width="121"/>
+    </Grid>
+</Window>
